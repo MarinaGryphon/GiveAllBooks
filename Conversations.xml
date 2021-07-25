@@ -1,0 +1,44 @@
+<conversations>
+  <conversation ID="MechanimistLibrarian">
+    <node ID="Start">
+      <text>
+        Live and learn, wanderer. Have you come across any books or scrolls in your travels? Do you care to donate one to the cathedral library? Whenever you return, you may speak to me and read anything you've donated.
+      </text>
+      <choice GotoID="Start" SpecialRequirement="GiveBook">Yes.</choice>
+      <choice GotoID="GivenAllBooks" SpecialRequirement="GiveAllBooks">Yes, I have several.</choice>
+      <choice GotoID="Where">Where is the library?</choice>
+      <choice GotoID="What">What use is a library in this salt den? Or in the marshes, strangled by wild plants and poisoned by the glow? Wouldn't a stash of vinereapers serve us better?</choice>
+      <choice GotoID="End">Not today. Live and drink, chronicler.</choice>
+    </node>
+    <node ID="Where">
+      <text>
+        Oh, we're in but the first phase of its foundation. The church has amassed a splendid collection of scripts through the years. Glorious Shekhinah, praise be upon Him, gifted us with several caches. The eremites work day and night reproducing them in the scriptorium, and I have taken it upon myself to beseech travelers, for the rarest finds often come from the least likely places.
+      </text>
+      <choice GotoID="Start" SpecialRequirement="GiveBook">I will donate a book.</choice>
+      <choice GotoID="GivenAllBooks" SpecialRequirement="GiveAllBooks">I will donate several books.</choice>
+      <choice GotoID="What">What use is a library in this salt den? Or in the marshes, strangled by wild plants and poisoned by the glow? Wouldn't a stash of vinereapers serve us better?</choice>
+      <choice GotoID="End">Live and drink, chronicler.</choice>
+    </node>
+    <node ID="What">
+      <text>
+        You share the pessimism of my kin, and several of the priests as well. My heart hears you, but listen to my words, and maybe you will come to feel as I do.
+
+        To devalue wisdom is to devalue the Kasaphescence. She shines in the void, refracting light, illuminating those around her. So does the written wisdom of our elders.
+
+        The machinery of chromium is complex in its divinity. Don't we do a disservice to our Fathers when we remain ignorant of it, of our past, of our future? Don't we deserve the joy of knowing? Bless Eschelstadt II, first Child, for he believes as I do.
+      </text>
+      <choice GotoID="Start" SpecialRequirement="GiveBook">I will donate a book.</choice>
+      <choice GotoID="GivenAllBooks" SpecialRequirement="GiveAllBooks">I will donate several books.</choice>
+      <choice GotoID="Where">Where is the library?</choice>
+      <choice GotoID="End">Live and drink, chronicler.</choice>
+    </node>
+    <node ID="GivenAllBooks">
+      <text>
+        Thank you, wanderer, for this generous donation. Every book you donate helps to bring the shining light of the Kasaphescence to the world.
+      </text>
+      <choice GotoID="Where">Where is the library?</choice>
+      <choice GotoID="What">What use is a library in this salt den? Or in the marshes, strangled by wild plants and poisoned by the glow? Wouldn't a stash of vinereapers serve us better?</choice>
+      <choice GotoID="End">That will be all. Live and drink, chronicler.</choice>
+    </node>
+  </conversation>
+</conversations>

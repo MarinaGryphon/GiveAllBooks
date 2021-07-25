@@ -1,0 +1,8 @@
+{
+	"id": "GiveAllBooks",
+	"title": "{{g|GiveAllBooks}}",
+	"description": "Gives Sheba Hagadias a new dialogue option that allows you to give her all your books at once.",
+	"version": "1.0.0",
+	"author": "{{c|jade2562}}",
+	"previewImage": "preview.png"
+}

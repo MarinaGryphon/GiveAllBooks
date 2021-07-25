@@ -1,0 +1,8 @@
+{
+  "WorkshopId": 2556736611,
+  "Title": "Give All Books",
+  "Description": "Gives Sheba Hagadias a new dialogue option that allows you to give her all your books at once.",
+  "Tags": "NPC, Conversation, Book, UX",
+  "Visibility": "2",
+  "ImagePath": "preview.png"
+}
