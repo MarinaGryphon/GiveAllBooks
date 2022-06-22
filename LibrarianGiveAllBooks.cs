@@ -56,7 +56,8 @@ namespace GiveAllBooks.Conversations.Parts
 		public override bool HandleEvent(EnterElementEvent E)
 		{
 			Inventory inventory = The.Player.Inventory;
-			int bookCount = 0;	
+			bool terse = Options.GetOption("OptionGiveAllBooksTerse") == "Yes";
+			int bookCount = 0;
 			int xpTotal = 0;
 			string displayName = The.Speaker.GetDisplayName(int.MaxValue, null, null, AsIfKnown: false, Single: false, NoConfusion: true, NoColor: false, Stripped: true, ColorOnly: false, WithoutEpithet: true, Short: false, BaseOnly: true);
 			string definiteArticle = The.Speaker.DefiniteArticle(capital: true, displayName, forBase: true);
@@ -74,14 +75,14 @@ namespace GiveAllBooks.Conversations.Parts
 				bookCount += currentObject.Count;
 				int xpAward = (int)(currentObject.ValueEach * currentObject.ValueEach / 25.0);
 				xpTotal += currentObject.Count * xpAward;
-				if(!IComponent<GameObject>.TerseMessages)
+				for (int i = 0; i < currentObject.Count; i++)
 				{
-					for (int i = 0; i < currentObject.Count; i++)
+					if (!terse)
 					{
 						Popup.Show("Sheba Hagadias provides some insightful commentary on '" + currentObject.DisplayNameSingle + "'.");
 						Popup.Show("You gain {{C|" + xpAward + "}} XP.", CopyScrap: true, Capitalize: true, DimBackground: true, LogMessage: false);
-						JournalAPI.AddAccomplishment(indefiniteArticle + displayName + " provided you with insightful commentary on " + currentObject.DisplayName + ".", "Remember the kindness of =name=, who patiently taught " + currentObject.DisplayName + " to " + The.Player.its + " simple pupil, " + indefiniteArticle + displayName + ".", "general", JournalAccomplishment.MuralCategory.LearnsSecret, JournalAccomplishment.MuralWeight.Low, null, -1L);
 					}
+					JournalAPI.AddAccomplishment(indefiniteArticle + displayName + " provided you with insightful commentary on " + currentObject.DisplayName + ".", "Remember the kindness of =name=, who patiently taught " + currentObject.DisplayName + " to " + The.Player.its + " simple pupil, " + indefiniteArticle + displayName + ".", "general", JournalAccomplishment.MuralCategory.LearnsSecret, JournalAccomplishment.MuralWeight.Low, null, -1L);
 				}
 				if (The.Speaker != null)
 				{
@@ -98,7 +99,7 @@ namespace GiveAllBooks.Conversations.Parts
 				Popup.Show("You don't have any suitable books to give.");
 				return false;
 			}
-			if(IComponent<GameObject>.TerseMessages)
+			if (terse)
 			{
 				Popup.Show("You give " + definiteArticle + displayName + " " + bookCount + " books, and gain {{C|" + xpTotal + "}} XP.", CopyScrap: true, Capitalize: true, DimBackground: true);
 			}
